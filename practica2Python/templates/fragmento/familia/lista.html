@@ -1,0 +1,189 @@
+{% extends 'template.html' %}
+
+{% block content %}
+
+
+
+<div class="col-12">
+    <h2>Lista de Familias</h2>
+<div class="col-12">
+    <!-- Boton de opcion para elegir por que metodo se va a buscar -->
+    <style>
+        .form-group {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Espacio entre los selectores */
+            margin-bottom: 15px; /* Separación de otros elementos */
+        }
+        .form-group label {
+            margin-right: 5px; /* Espacio entre las etiquetas y los selectores */
+        }
+    </style>
+</head>
+
+
+
+
+<body>
+    <div class="form-group">
+        <label for="sorting-method">Método de orden:</label>
+        <select id="sorting-method" name="sorting-method">
+            <option value="quick">QuickSort</option>
+            <option value="merge">MergeSort</option>
+            <option value="shell">ShellSort</option>
+        </select>
+
+        <label for="sorting-criteria">Criterio:</label>
+        <select id="sorting-criteria" name="sorting-criteria">
+            <option value="apellidos">Apellido</option>
+            <option value="direccion">Dirección</option>
+            <option value="sector">Sector</option>
+        </select>
+
+        <label for="order-type">Orden:</label>
+        <select id="order-type" name="order-type">
+            <option value="0">Ascendente</option>
+            <option value="1">Descendente</option>
+        </select>
+        <button id="btn-ordenar" class="btn btn-success" type="button">Ordenar</button>
+    
+    </div>
+    <div>
+        <label for="sorting-algorithms">Método de búsqueda</label>
+        <select id="sorting-algorithms" name="sorting-algorithms">
+            <option value="binary">Binario</option>
+            <option value="linealBinary">Lineal Binario</option>
+        </select>
+    
+        <label for="sorting-criteria">Criterio:</label>
+        <select id="sorting-criteria-search">
+            <option value="apellidos">Apellido</option>
+            <option value="direccion">Dirección</option>
+            <option value="sector">Sector</option>
+            <option value="codigoHogar">Codigo del hogar</option>
+        </select>
+    
+        <input id="valor" placeholder="Ingrese el texto a buscar">
+        <button id="btn-buscar" class="btn btn-primary">Buscar</button>
+    </div>
+    <div>
+    <a href="/admin/family/register" class="btn btn-success">Nuevo</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nro</th>
+                <th>Apellidos</th>
+                <th>Dirección</th>
+                <th>Sector</th>
+                <th>Codigo del hogar</th>
+                <th>¿Adquirió generdador?</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+       <tbody>
+        <!--presentar la lista, -->
+        {% for item in lista %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{item.apellidos}}</td>
+            <td>{{item.direccion}}</td>
+            <td>{{item.sector}}</td>
+            <td>{{item.codigoHogar}}</td>
+            <td>{{item.adquirirGenerador}}</td>
+            
+
+            <style>
+                .btn-rosa {
+                    background-color: #ff66b2;  /* Rosa normal */
+                    color: white;               /* Texto en blanco */
+                    border: none;               /* Sin borde */
+                }
+            </style>
+
+            <td><a href="/admin/family/edit/{{item.id}}" class="btn btn-rosa">MODIFICAR</a></td>
+
+            <td>
+                {% if item.generador %}
+                    <a href="/admin/generator/list/{{ item.id }}" class="btn btn-danger">GENERADOR (ver)</a>
+                {% else %}
+                    Sin Generador
+                {% endif %}
+            </td>
+         </tr>
+        {% endfor %}   
+            
+       </tbody> 
+
+    </table>
+
+</div>
+
+<script>
+    document.getElementById("btn-ordenar").addEventListener("click", function () {
+        const metodo = document.getElementById("sorting-method").value;
+        const attribute = document.getElementById("sorting-criteria").value;
+        const type = document.getElementById("order-type").value;
+;
+        const url = `/admin/family/order/${attribute}/${type}/${metodo}`;
+        window.location.href = url; 
+    });
+</script>
+
+
+<script>
+    document.getElementById("sorting-algorithms").addEventListener("change", function () {
+        const method = document.getElementById("sorting-algorithms").value;
+        const select = document.getElementById("sorting-criteria-search");
+        if (method === "binary") {
+            select.innerHTML = `
+                <option value="codigoHogar">Codigo del hogar</option>
+            `;
+        } else {
+            select.innerHTML = `
+                <option value="apellidos">Apellido</option>
+                <option value="direccion">Dirección</option>
+                <option value="sector">Sector</option>
+            `;
+        }
+    });
+    window.onload = function () {
+        const method = document.getElementById("sorting-algorithms").value;
+        const select = document.getElementById("sorting-criteria-search");
+        if (method === "binary") {
+            select.innerHTML = `
+                <option value="codigoHogar">Codigo del hogar</option>
+            `;
+        } else {
+            select.innerHTML = `
+                <option value="apellidos">Apellido</option>
+                <option value="direccion">Dirección</option>
+                <option value="sector">Sector</option>
+            `;
+        }
+    };
+</script>
+
+
+<script>
+    document.getElementById("btn-buscar").addEventListener("click", function () {
+        const method = document.getElementById("sorting-algorithms").value;
+        const criteria = document.getElementById("sorting-criteria-search").value;
+        const value = document.getElementById("valor").value;
+    
+        if (value.trim() === "") {
+            alert("Por favor, ingrese un texto para buscar.");
+            return;
+        }
+    
+        if (!["binary", "linealBinary"].includes(method)) {
+            alert("Método de búsqueda inválido.");
+            return;
+        }
+    
+        const url = `/admin/family/search/${criteria}/${value}/${method.toLowerCase()}`;
+        window.location.href = url; 
+    });
+</script>
+
+{% endblock %}

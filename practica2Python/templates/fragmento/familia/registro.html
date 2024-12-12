@@ -1,0 +1,108 @@
+{% extends 'template.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="pagetitle">
+        <h1>Registro de Familias</h1>
+    </div>
+  
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Ingresa los datos de la representación de la familia</h5>
+
+                        <form class="row g-3 needs-validation" method="POST" action="/admin/family/save" novalidate>
+                            <div class="mb-3">
+                                <label for="validationCustom02" class="form-label">Apellidos</label>
+                                <input type="text" class="form-control" name="ape" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="validationCustom02" class="form-label">Dirección</label>
+                                <input type="text" class="form-control" name="dir" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="validationCustom02" class="form-label">Sector</label>
+                                <input type="text" class="form-control" name="sec" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="validationCustom02" class="form-label">Código del hogar</label>
+                                <input type="text" class="form-control" name="cod" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="adquirirGenerador" class="form-label">¿Adquirió generador?</label>
+                                <div>
+                                    <input type="radio" id="adquirio_si" name="adq" value="true" required>
+                                    <label for="adquirio_si">Sí</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="adquirio_no" name="adq" value="false" required>
+                                    <label for="adquirio_no">No</label>
+                                </div>
+                            </div>
+                        
+
+                            <div class="col-6">
+                                <button type="submit" class="btn btn-primary">Registrar</button>
+                            </div>
+                            <div class="col-6">
+                                <a href="/admin/family/list" class="btn btn-danger">Cancelar</a>
+                            </div>
+
+                            <div id="generador_campos" style="display:none;">
+                                <div class="mb-3">
+                                    <label for="coste" class="form-label">Coste del generador</label>
+                                    <input type="text" class="form-control" name="coste">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="potencia" class="form-label">Potencia</label>
+                                    <input type="text" class="form-control" name="potencia">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="consumo" class="form-label">Consumo por hora</label>
+                                    <input type="text" class="form-control" name="consumo">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="tipo_uso" class="form-label">Tipo de uso</label>
+                                    <input type="text" class="form-control" name="tipo_uso">
+                                </div>
+                            </div>
+                            
+                            <script>
+                                // Mostrar u ocultar campos de generador
+                                document.querySelectorAll('input[name="adq"]').forEach(el => {
+                                    el.addEventListener('change', function() {
+                                        const generadorCampos = document.getElementById('generador_campos');
+                                        if (this.value === 'true') {
+                                            generadorCampos.style.display = 'block';
+                                        } else {
+                                            generadorCampos.style.display = 'none';
+                                        }
+                                    });
+                                });
+                            </script>
+                            
+
+
+                           
+
+
+
+
+
+
+
+
+
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

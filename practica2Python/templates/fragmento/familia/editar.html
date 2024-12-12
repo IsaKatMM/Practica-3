@@ -1,0 +1,64 @@
+{% extends 'template.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="pagetitle">
+        <h1>Edición de Familias</h1>
+    </div>
+  
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Edición de la familia</h5>
+
+                        <form class="row g-3 needs-validation" method="POST" action="/admin/family/update" novalidate>
+                            <input type="hidden" value="{{ family.id }}" name="id">
+                            
+                            <div class="mb-3">
+                                <label for="validationCustom02" class="form-label">Apellidos</label>
+                                <input type="text" class="form-control" name="ape" required value="{{ family.apellidos }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="validationCustom02" class="form-label">Dirección</label>
+                                <input type="text" class="form-control" name="dir" required value="{{ family.direccion }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="validationCustom02" class="form-label">Sector</label>
+                                <input type="text" class="form-control" name="sec" required value="{{ family.sector }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="validationCustom02" class="form-label">Código del hogar</label>
+                                <input type="text" class="form-control" name="cod" required value="{{ family.codigoHogar }}" readonly>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="adquirirGenerador" class="form-label">¿Adquirió generador?</label>
+                                <div>
+                                    <input type="radio" id="adquirio_si" name="adq" value="true" 
+                                    {{ 'checked' if family.adquirirGenerador == true else '' }} required>
+                                    <label for="adquirio_si">Sí</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="adquirio_no" name="adq" value="false" 
+                                    {{ 'checked' if family.adquirirGenerador == false else '' }} required>
+                                    <label for="adquirio_no">No</label>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                            <div class="col-6">
+                                <a href="/admin/family/list" class="btn btn-danger">Cancelar</a>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

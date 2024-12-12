@@ -1,0 +1,201 @@
+[
+    {
+        "id": 1,
+        "apellidos": "Perez",
+        "direccion": "Calle 123",
+        "sector": "Norte",
+        "codigoHogar": "1235632178",
+        "adquirirGenerador": true,
+        "generador": {
+            "id": 1,
+            "coste": 2500.0,
+            "potencia": 1500.0,
+            "consumoHora": 3.5,
+            "tipoUso": "Residencial"
+        }
+    },
+    {
+        "id": 2,
+        "apellidos": "Ramon Chimbo",
+        "direccion": "Av. Principal 123",
+        "sector": "Norte",
+        "codigoHogar": "05683217751",
+        "adquirirGenerador": true,
+        "generador": {
+            "coste": 250.5,
+            "potencia": 5.0,
+            "consumoHora": 0.8,
+            "tipoUso": "Dom�stico"
+        }
+    },
+    {
+        "id": 3,
+        "apellidos": "Espinoza Herrera",
+        "direccion": "Pradera ",
+        "sector": "Sur",
+        "codigoHogar": "2539786311",
+        "adquirirGenerador": false
+    },
+    {
+        "id": 4,
+        "apellidos": "Morocho Marizaca",
+        "direccion": "Chinguilanchi",
+        "sector": "Norte",
+        "codigoHogar": "2547896314",
+        "adquirirGenerador": true,
+        "generador": {
+            "coste": 12000.0,
+            "potencia": 5000.0,
+            "consumoHora": 150.0,
+            "tipoUso": "Taller Artesanal"
+        }
+    },
+    {
+        "id": 5,
+        "apellidos": "Cuenca Morocho",
+        "direccion": "Belen",
+        "sector": "Norte",
+        "codigoHogar": "2345896125",
+        "adquirirGenerador": false
+    },
+    {
+        "id": 6,
+        "apellidos": "Luna Abad",
+        "direccion": "Ciudad Alegria",
+        "sector": "Sur",
+        "codigoHogar": "2569713636",
+        "adquirirGenerador": true,
+        "generador": {
+            "coste": 2800.0,
+            "potencia": 1600.0,
+            "consumoHora": 2.5,
+            "tipoUso": "Casa Resisdensial"
+        }
+    },
+    {
+        "id": 7,
+        "apellidos": "Matailo Eguiguren",
+        "direccion": "Obrapia",
+        "sector": "Sur",
+        "codigoHogar": "2564789314",
+        "adquirirGenerador": true,
+        "generador": {
+            "coste": 12000.0,
+            "potencia": 5223.0,
+            "consumoHora": 56966.0,
+            "tipoUso": "Cocina"
+        }
+    },
+    {
+        "id": 8,
+        "apellidos": "Asanza Abad",
+        "direccion": "Ciudad Alegria",
+        "sector": "Sur",
+        "codigoHogar": "2547896314",
+        "adquirirGenerador": true,
+        "generador": {
+            "coste": 12000.0,
+            "potencia": 5000.0,
+            "consumoHora": 4255.0,
+            "tipoUso": "Dormitorio"
+        }
+    },
+    {
+        "id": 9,
+        "apellidos": "Jimenez Espinoza",
+        "direccion": "Vellavista",
+        "sector": "Norte",
+        "codigoHogar": "1235479654",
+        "adquirirGenerador": true,
+        "generador": {
+            "coste": 12000.0,
+            "potencia": 2556.0,
+            "consumoHora": 2665.0,
+            "tipoUso": "Taller"
+        }
+    },
+    {
+        "id": 10,
+        "apellidos": "Balcazar Espinoza",
+        "direccion": "Operadores",
+        "sector": "Sur",
+        "codigoHogar": "2458931466",
+        "adquirirGenerador": true,
+        "generador": {
+            "coste": 2000.0,
+            "potencia": 1000.0,
+            "consumoHora": 253.0,
+            "tipoUso": "Edificio"
+        }
+    },
+    {
+        "id": 11,
+        "apellidos": "Perez",
+        "direccion": "Sauces Norte",
+        "sector": "Norte",
+        "codigoHogar": "25634812569",
+        "adquirirGenerador": true,
+        "generador": {
+            "coste": 12000.0,
+            "potencia": 5223.0,
+            "consumoHora": 150.0,
+            "tipoUso": "Cocina"
+        }
+    },
+    {
+        "id": 12,
+        "apellidos": "Perez",
+        "direccion": "Belen",
+        "sector": "Norte",
+        "codigoHogar": "2547896315",
+        "adquirirGenerador": true,
+        "generador": {
+            "coste": 12000.0,
+            "potencia": 5223.0,
+            "consumoHora": 150.0,
+            "tipoUso": "Casa de 3 pisos"
+        }
+    },
+    {
+        "id": 13,
+        "apellidos": "Huacaca Perez",
+        "direccion": "Av. Occiddntal",
+        "sector": "Sur",
+        "codigoHogar": "155234785692",
+        "adquirirGenerador": true,
+        "generador": {
+            "coste": 2000.0,
+            "potencia": 5000.0,
+            "consumoHora": 4255.0,
+            "tipoUso": "Casa "
+        }
+    },
+    {
+        "id": 14,
+        "apellidos": "Calava Guaman",
+        "direccion": "Tebaida",
+        "sector": "Sur",
+        "codigoHogar": "2453697514",
+        "adquirirGenerador": true,
+        "generador": {
+            "coste": 12000.0,
+            "potencia": 5223.0,
+            "consumoHora": 253.0,
+            "tipoUso": "Dormitorio"
+        }
+    },
+    {
+        "id": 15,
+        "apellidos": "Curimilma Calva",
+        "direccion": "El eucalipto",
+        "sector": "Sur",
+        "codigoHogar": "1245369785",
+        "adquirirGenerador": true,
+        "generador": {
+            "coste": 2000.0,
+            "potencia": 5000.0,
+            "consumoHora": 150.0,
+            "tipoUso": "Casa Granjera"
+        }
+    }
+]

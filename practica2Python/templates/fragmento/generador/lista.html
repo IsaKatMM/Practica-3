@@ -1,0 +1,44 @@
+{% extends 'template.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <a href="/admin/generator/register" class="btn btn-success mb-3">Nuevo Generador</a>
+            <h2>Lista de Generadores de la Familia {{ id }}</h2>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nro</th>
+                        <th>Costo</th>
+                        <th>Potencia</th>
+                        <th>Consumo por hora</th>
+                        <th>Tipo de uso</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if lista %}
+                        {% for item in lista %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ item.coste }}</td>
+                            <td>{{ item.potencia }}</td>
+                            <td>{{ item.consumoHora }}</td>
+                            <td>{{ item.tipoUso }}</td>
+                            <td>
+                                <a href="/admin/generator/edit/{{ item.id }}" class="btn btn-warning">MODIFICAR</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="6" class="text-center">No hay generadores disponibles para esta familia.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

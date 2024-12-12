@@ -1,0 +1,81 @@
+{% extends 'template.html' %}
+
+{% block content %}
+
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro de Generador</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="pagetitle">
+        <h1>Registro de Generador</h1>
+    </div>
+
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Ingresa los datos del generador</h5>
+
+                        <!-- Formulario para registrar el generador -->
+                        <form class="row g-3 needs-validation" method="POST" action="/admin/generator/save" novalidate>
+                            <div class="mb-3">
+                                <label for="coste" class="form-label">Coste ($)</label>
+                                <input type="text" class="form-control" id="coste" name="coste" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="potencia" class="form-label">Potencia (Watt)</label>
+                                <input type="text" class="form-control" id="potencia" name="potencia" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="consumo" class="form-label">Consumo por hora (kWh)</label>
+                                <input type="text" class="form-control" id="consumo" name="consumo" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="tipo_uso" class="form-label">Tipo de uso</label>
+                                <input type="text" class="form-control" id="tipo_uso" name="tipo_uso" required>
+                            </div>
+
+                     
+
+                            <!-- Botones de acción -->
+                            <div class="col-6">
+                                <button type="submit" class="btn btn-success">Guardar</button>
+                            </div>
+                            <div class="col-6">
+                                <a href="/admin/generator/list" class="btn btn-danger">Cancelar</a>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Enlazamos Bootstrap desde un CDN -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+
+
+{% endblock %}
